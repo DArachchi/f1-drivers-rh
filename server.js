@@ -7,8 +7,8 @@ var mongoose = require("mongoose");
 var dotenv = require("dotenv");
 var Keycloak = require("keycloak-connect");
 
-// Require team model
-var Team = require("./models/team.js");
+// Require driver model
+var Driver = require("./models/driver.js");
 
 // Load in environmental variables from .env
 dotenv.load();
@@ -50,21 +50,21 @@ app.get('/', function(req,res) {
     res.render('index');
 });
 
-app.get('/teams', keycloak.protect('realm:user'), function(req,res) {
-	Team.find({}, function(error, data) {
+app.get('/drivers', keycloak.protect('realm:user'), function(req,res) {
+	Driver.find({}, function(error, data) {
 		if (error) {
 			res.send(error);
 		}
 		else {
             data = JSON.stringify(data);
             data = JSON.parse(data);
-            res.render('teams', {user: req.user, teams: data});
+            res.render('drivers', {user: req.user, drivers: data});
 		}
 	})
 });
 
 app.get('/callback', function(req,res) {
-        res.redirect(req.session.returnTo || '/teams');
+        res.redirect(req.session.returnTo || '/drivers');
 });
 
 // Database configuration with mongoose

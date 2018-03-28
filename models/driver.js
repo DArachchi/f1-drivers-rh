@@ -3,8 +3,8 @@ var mongoose = require("mongoose");
 // Create a schema class
 var Schema = mongoose.Schema;
 
-// Create Team schema
-var TeamSchema = new Schema({
+// Create Driver schema
+var DriverSchema = new Schema({
   // title is a required string
   title: {
     type: String,
@@ -12,8 +12,8 @@ var TeamSchema = new Schema({
   }
 });
 
-// Create the Team model with the TeamSchema
-var Team = mongoose.model("Team", TeamSchema);
+// Create the Driver model with the DriverSchema
+var Driver = mongoose.model("Driver", DriverSchema);
 
 // Export the model
-module.exports = Team;
+module.exports = Driver;
