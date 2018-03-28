@@ -1,0 +1,10 @@
+{
+  "realm": "f1-sso",
+  "auth-server-url": "http://localhost:8180/auth",
+  "ssl-required": "external",
+  "resource": "f1-drivers-rh",
+  "credentials": {
+    "secret": "ae39790f-c070-4fa6-bdbb-6715669866eb"
+  },
+  "confidential-port": 0
+}
