@@ -63,7 +63,7 @@ app.get('/landing', keycloak.protect(), function(req,res) {
     res.render('landing', {user: user});
 });
 
-app.get('/drivers', keycloak.protect('realm:user'), function(req,res) {
+app.get('/drivers', keycloak.protect('realm:Drivers'), function(req,res) {
 	Driver.find({}, function(error, data) {
 		if (error) {
 			res.send(error);
